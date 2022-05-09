@@ -11,7 +11,7 @@ pipeline {
                 sh "docker kill dicetracker_run || true"
                 sh "docker rm dicetracker_run || true"
                 sh "docker build -t dicetracker_run:latest -f DockerfileRun ."
-                sh "docker run --name dicetracker_run -p 9090:8080 dicetracker_run:latest"
+                sh "docker run --name dicetracker_run -p 80:8080 dicetracker_run:latest"
             }
         }
     }
