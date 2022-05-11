@@ -15,7 +15,7 @@
     <#--    if numberOfDice (added from the model) exists, then proceed with printing it, else print a default "static" image -->
     <#--    https://freemarker.apache.org/docs/dgui_template_exp.html#dgui_template_exp_missing_test -->
     <#if numberOfDice??>
-        <img src="images/${numberOfDice}.png">
+        <img src="images/animals/${numberOfDice}.png">
     <#else>
         <img src="images/questionMark.png">
     </#if>
