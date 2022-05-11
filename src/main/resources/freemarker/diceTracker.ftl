@@ -28,7 +28,7 @@
 <#-- checks if allDieResults which is a list, is empty or not -->
 <#-- https://freemarker.apache.org/docs/ref_builtins_expert.html#ref_builtin_has_content -->
 <#if allDieResults?has_content>
-    <table style="margin-left: auto; margin-right: auto">
+    <table style="margin-left: auto;   margin-right: auto">
         <tr>
             <th>ID</th>
             <th>Result</th>
