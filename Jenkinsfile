@@ -14,7 +14,7 @@ pipeline {
                 sh "docker login -upgiannoukos -pPackardg1!"
                 sh "docker image tag dicetracker_run pgiannoukos/dicetracker_run:latest"
                 sh "docker image push pgiannoukos/dicetracker_run:latest"
-                sh "docker run -d --name dicetracker_run  -p 80:8080 dicetracker_run:latest"
+                sh "docker run -d --name dicetracker_run  -p 80:8080 pgiannoukos/dicetracker_run:latest"
             }
         }
     }
