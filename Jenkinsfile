@@ -22,7 +22,7 @@ pipeline {
                 sh "docker login -upgiannoukos -pPackardg1!"
                 sh "docker image tag dicetracker pgiannoukos/dicetracker:latest"
                 sh "docker image push pgiannoukos/dicetracker:latest"
-                sh "docker run -d --name dicetracker -p 80:8080 pgiannoukos/dicetracker:latest"
+                sh "docker run -d --name dicetracker -p 80:8080 pgiannoukos/dicetracker:latest "
             }
         }
     }
