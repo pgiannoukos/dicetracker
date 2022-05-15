@@ -15,7 +15,7 @@ pipeline {
                 // sh "docker image tag dicetracker_run pgiannoukos/dicetracker_run:latest"
                 // sh "docker image push pgiannoukos/dicetracker_run:latest"
                 // sh "docker run -d --name dicetracker_run  -p 80:8080 pgiannoukos/dicetracker_run:latest"
-                "docker run -v "$(pwd):/app" -w "/app" maven:3.8.3-openjdk-17 mvn clean test install"
+                'docker run -v "$(pwd):/app" -w "/app" maven:3.8.3-openjdk-17 mvn clean test install'
                 "docker kill dicetracker || true"
                 "docker rm dicetracker || true"
                 "docker build -t dicetracker:latest ."
