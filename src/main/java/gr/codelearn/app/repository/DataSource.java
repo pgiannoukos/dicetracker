@@ -32,6 +32,14 @@ public class DataSource {
     private static final String USERNAME = "sa";
     private static final String PASSWORD = "sa";
 
+    // // JDBC driver name and database URL
+    // private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    // // Database URL
+    // private static final String DB_URL = "jdbc:mysql://mysql-dicetracker:3306/diceTracker?createDatabaseIfNotExist=true";
+    // //Database credentials
+    // private static final String USERNAME = "root";
+    // private static final String PASSWORD = "mysql";
+
     private static Connection connection;
     private static final Properties sqlCommands = new Properties();
 
