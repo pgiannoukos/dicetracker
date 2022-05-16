@@ -14,6 +14,8 @@
 <a href="/shapeDiceTracker">Shape Dice Tracker</a>
 |
 <a href="/viewStatistics">Visits</a>
+|
+<a href="/resetStatistics">Reset Statistics</a>
 <b>
 <hr>
 <h2>Game of dice...</h2>

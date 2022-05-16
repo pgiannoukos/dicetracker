@@ -14,30 +14,28 @@
 <a href="/shapeDiceTracker">Shape Dice Tracker</a>
 |
 <a href="/viewStatistics">Visits</a>
+|
+<a href="/resetStatistics">Reset Statistics</a>
 <hr>
 <h2>Visits...</h2>
-<hr>
-<div style="text-align: center">
-    <form action="/resetStatistics" method="post">
-        <input type="submit" value="Reset Statistics">
-    </form>
-</div>
 <hr>
 <#if allVisitResults?has_content>
     <table style="margin-left: auto; margin-right: auto">
         <tr>
-            <th>ID</th>
             <th>Type</th>
-            <th>Date</th>
+            <th>Amount</th>
         </tr>
         <#list allVisitResults as visitResult>
             <tr>
-                <td>${visitResult.id}</td>
                 <td>${visitResult.type}</td>
-                <td>${visitResult.throwDate}</td>
+                <td>${visitResult.amount}</td>
             </tr>
         </#list>
     </table>
+<#else>
+    <h2 style="text-align:center;">
+        No visits available
+    </h2>
 </#if>
 </body>
 </html>

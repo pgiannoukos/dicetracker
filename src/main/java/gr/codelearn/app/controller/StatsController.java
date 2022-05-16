@@ -49,10 +49,15 @@ public class StatsController {
         return "viewStatistics";
     }
 
-    @PostMapping("/resetStatistics")
+    @GetMapping("/resetStatistics")
     public String resetStatistics(Model model) {
-        visitService.resetStatistics();
         return "resetStatistics";
+    }
+
+    @PostMapping("/doResetStatistics")
+    public String doResetStatistics(Model model) {
+        visitService.resetStatistics();
+        return "redirect:/viewStatistics";
     }
 }
 

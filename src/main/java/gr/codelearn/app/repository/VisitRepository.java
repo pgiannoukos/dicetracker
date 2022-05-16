@@ -35,15 +35,14 @@ public class VisitRepository {
     public List<Visit> getAllVisitResults() {
         List<Visit> allVisitResults = new ArrayList<>();
         try {
-            String query = "SELECT * FROM VISIT";
+            String query = "SELECT `type`, count(id) as amount FROM VISIT GROUP BY `type`";
             Connection connection = DataSource.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()){
-                long id = resultSet.getLong(1);
-                String type = resultSet.getString(2);
-                Timestamp throwDate = resultSet.getTimestamp(3);
-                allVisitResults.add(new Visit(id, type, throwDate));
+                String type = resultSet.getString(1);
+                Integer amount = resultSet.getInt(2);
+                allVisitResults.add(new Visit(type, amount));
             }
         } catch (SQLException e) {
             log.error("For some reason, a connection could not be obtained", e);

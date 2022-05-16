@@ -11,7 +11,6 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class Visit {
-    private Long id;
     private String type;
-    private Date throwDate;
+    private Integer amount;
 }
