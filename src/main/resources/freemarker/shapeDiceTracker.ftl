@@ -7,7 +7,12 @@
 <body>
 <a href="/">Index</a>
 |
-<b><a href="/diceTracker">Dice Tracker</a></b>
+<a href="/diceTracker">Dice Tracker</a>
+|
+<a href="/animalDiceTracker">Animal Dice Tracker</a>
+|
+<a href="/shapeDiceTracker">Shape Dice Tracker</a>
+<b>
 <hr>
 <h2>Game of dice...</h2>
 <hr>
@@ -15,11 +20,11 @@
     <#--    if numberOfDice (added from the model) exists, then proceed with printing it, else print a default "static" image -->
     <#--    https://freemarker.apache.org/docs/dgui_template_exp.html#dgui_template_exp_missing_test -->
     <#if numberOfDice??>
-        <img style="width:200px; height:200px" src="images/${numberOfDice}.png">
+        <img style="width:200px; height:200px" src="images/shapes/${numberOfDice}.png">
     <#else>
         <img src="images/questionMark.png">
     </#if>
-    <form action="/throwDice" method="post">
+    <form action="/throwShapeDiceTracker" method="post">
         <#--        when the button is clicked, it requested endpoints "/throwDice"-->
         <input type="submit" value="Throw Dice">
     </form>
