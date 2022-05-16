@@ -19,7 +19,7 @@ pipeline {
         }
         stage('run docker app') {
             steps {
-                sh "docker run --name dicetracker --network dicetracker-network -p 80:8080 pgiannoukos/dicetracker:latest "
+                sh "docker run -d --restart always --name dicetracker --network dicetracker-network -p 80:8080 pgiannoukos/dicetracker:latest "
             }
         }
     }
