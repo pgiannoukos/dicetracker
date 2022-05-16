@@ -5,13 +5,15 @@
     <title>Dice Tracker</title>
 </head>
 <body>
-<a href="/">Index</a>
+<b><a href="/">Index</a></b>
 |
 <a href="/diceTracker">Dice Tracker</a>
 |
 <a href="/animalDiceTracker">Animal Dice Tracker</a>
 |
 <a href="/shapeDiceTracker">Shape Dice Tracker</a>
+|
+<a href="/viewStatistics">Visits</a>
 <b>
 <hr>
 <h2>Game of dice...</h2>

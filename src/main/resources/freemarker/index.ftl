@@ -15,7 +15,7 @@
 |
 <a href="/viewStatistics">Visits</a>
 <hr>
-<h2>Welcome to our page man!</h2>
+<h2>Welcome to our page!</h2>
 <hr>
 </body>
 </html>
