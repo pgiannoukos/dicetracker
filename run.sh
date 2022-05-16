@@ -5,4 +5,5 @@ docker image tag dicetracker pgiannoukos/dicetracker:latest
 docker image push pgiannoukos/dicetracker:latest
 docker kill dicetracker || true
 docker rm dicetracker || true
+docker network create dicetracker-network || true
 docker run --name dicetracker --network dicetracker-network -p 80:8080 pgiannoukos/dicetracker:latest

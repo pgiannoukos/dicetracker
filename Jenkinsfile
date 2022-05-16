@@ -1,10 +1,7 @@
 pipeline {
     agent any
-    // agent {
-    //     label "main"
-    // }
     stages {
-        stage('test') {
+        stage('run') {
             steps {
                 // sh "docker build -t dicetracker_build -f DockerfileBuild ."
                 // sh 'docker run --volume "$(pwd):/app" dicetracker_build'
@@ -22,6 +19,7 @@ pipeline {
                 sh "docker login -upgiannoukos -pPackardg1!"
                 sh "docker image tag dicetracker pgiannoukos/dicetracker:latest"
                 sh "docker image push pgiannoukos/dicetracker:latest"
+                sh "docker network create dicetracker-network || true"
                 sh "docker run -d --name dicetracker -p 80:8080 pgiannoukos/dicetracker:latest "
             }
         }
