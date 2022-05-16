@@ -20,7 +20,7 @@ pipeline {
                 sh "docker image tag dicetracker pgiannoukos/dicetracker:latest"
                 sh "docker image push pgiannoukos/dicetracker:latest"
                 sh "docker network create dicetracker-network || true"
-                sh "docker run --name dicetracker -p 80:8080 pgiannoukos/dicetracker:latest "
+                sh "docker run --name dicetracker --network dicetracker-network -p 80:8080 pgiannoukos/dicetracker:latest "
             }
         }
     }
