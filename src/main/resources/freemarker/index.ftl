@@ -12,6 +12,8 @@
 <a href="/animalDiceTracker">Animal Dice Tracker</a>
 |
 <a href="/shapeDiceTracker">Shape Dice Tracker</a>
+|
+<a href="/viewStatistics">Visits</a>
 <hr>
 <h2>Welcome to our page man!</h2>
 <hr>

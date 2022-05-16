@@ -17,8 +17,19 @@ pipeline {
                 sh "docker network create dicetracker-network || true"
             }
         }
+
+        stage('start mysql') {
+            steps {
+                sh "docker kill mysql-dicetracker || true"
+                sh "docker rm mysql-dicetracker || true"
+                sh 'docker run -d --restart always --name mysql-dicetracker -v "/var/database/mysql:/var/lib/mysql" --network dicetracker-network -e MYSQL_ROOT_PASSWORD=mysql -p 3306:3306 mysql:5.7'
+            }
+        }
+
         stage('run docker app') {
             steps {
+                // wait for mysql to load
+                sh "sleep 10"
                 sh "docker run -d --restart always --name dicetracker --network dicetracker-network -p 80:8080 pgiannoukos/dicetracker:latest "
             }
         }

@@ -1,6 +1,9 @@
 package gr.codelearn.app.controller;
 
 import gr.codelearn.app.service.DiceService;
+import gr.codelearn.app.service.AnimalDiceService;
+import gr.codelearn.app.service.ShapeDiceService;
+import gr.codelearn.app.service.VisitService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +37,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class DiceController {
 
     private DiceService diceService;
+    private AnimalDiceService animalDiceService;
+    private ShapeDiceService shapeDiceService;
+    private VisitService visitService;
 
     public DiceController() {
         this.diceService = new DiceService();
+        this.animalDiceService = new AnimalDiceService();
+        this.shapeDiceService = new ShapeDiceService();
+        this.visitService = new VisitService();
     }
 
     @GetMapping("/") // default URL, so for example if application runs locally: localhost:8080/
@@ -50,6 +59,7 @@ public class DiceController {
         // in order to access it in the html/ftl file, you need to use the name typed as the first parameter
         // in this case "allDieResults"
         model.addAttribute("allDieResults", diceService.getAllDieResults());
+         visitService.visit("dice");
         return "diceTracker";
     }
 
@@ -65,14 +75,15 @@ public class DiceController {
         // model attribute which adds a list for the html/ftl file to process
         // in order to access it in the html/ftl file, you need to use the name typed as the first parameter
         // in this case "allDieResults"
-        model.addAttribute("allDieResults", diceService.getAllDieResults());
+        model.addAttribute("allDieResults", animalDiceService.getAllDieResults());
+        visitService.visit("animal");
         return "animalDiceTracker";
     }
 
     @PostMapping("/throwAnimalDiceTracker")
     public String throwAnimalDiceTracker(RedirectAttributes redirectAttributes){
         // redirect attribute which simply adds what was the result of a throw
-        redirectAttributes.addFlashAttribute("numberOfDice", diceService.throwDie());
+        redirectAttributes.addFlashAttribute("numberOfDice", animalDiceService.throwDie());
         return "redirect:/animalDiceTracker";
     }
 
@@ -81,14 +92,15 @@ public class DiceController {
         // model attribute which adds a list for the html/ftl file to process
         // in order to access it in the html/ftl file, you need to use the name typed as the first parameter
         // in this case "allDieResults"
-        model.addAttribute("allDieResults", diceService.getAllDieResults());
+        model.addAttribute("allDieResults", shapeDiceService.getAllDieResults());
+        visitService.visit("shape");
         return "shapeDiceTracker";
     }
 
     @PostMapping("/throwShapeDiceTracker")
     public String throwShapeDiceTracker(RedirectAttributes redirectAttributes){
         // redirect attribute which simply adds what was the result of a throw
-        redirectAttributes.addFlashAttribute("numberOfDice", diceService.throwDie());
+        redirectAttributes.addFlashAttribute("numberOfDice", shapeDiceService.throwDie());
         return "redirect:/shapeDiceTracker";
     }
 }
